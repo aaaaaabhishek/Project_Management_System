@@ -2,9 +2,9 @@ spring:
   application:
     name: Project_Management
   datasource:
-    url: jdbc:postgresql://localhost:5432/project_management
+    url: jdbc:postgresql://localhost:5433/project_management
     username: postgres
-    password: 1234
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
