@@ -11,6 +11,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -54,10 +56,14 @@ public class EmployeeServiceImp implements EmployeeService {
         );
     }
 
+//    @Override
+//    public List<EmployeeDto> getAllEmployee() {
+//        List<Employee> listOfEmployee = employeeRepository.findAll();
+//        return listOfEmployee.stream().map(this::convertToDto).toList();
+//    }
     @Override
-    public List<EmployeeDto> getAllEmployee() {
-        List<Employee> listOfEmployee = employeeRepository.findAll();
-        return listOfEmployee.stream().map(this::convertToDto).toList();
+    public Page<EmployeeDto> getAllEmployee(Pageable pageable) {
+        return employeeRepository.findAll(pageable).map(this::convertToDto);
     }
 
     @Override
@@ -84,7 +90,7 @@ public class EmployeeServiceImp implements EmployeeService {
 
         Employee employee = convertToEntity(employeeDto);
         employeeRepository.save(employee);
-        return new EmployeeSuccessResponse( HttpStatus.CREATED.value(),
+        return new EmployeeSuccessResponse( HttpStatus.OK.value(),
                 messageSource.getMessage("SUCCESS_EMPLOYEE_UPDATE", null, LocaleContextHolder.getLocale())
         );
     }
