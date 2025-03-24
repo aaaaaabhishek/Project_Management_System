@@ -5,6 +5,10 @@ import com.modus.projectmanagement.payload.EmployeeSuccessResponse;
 import com.modus.projectmanagement.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +28,20 @@ public class EmployeeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+//    @GetMapping("/getAllEmployee")
+//    public ResponseEntity<List<EmployeeDto>> getAllEmployee() {
+//        List<EmployeeDto> listOfEmployees = employeeService.getAllEmployee();
+//        return ResponseEntity.status(HttpStatus.OK).body(listOfEmployees);
+//    }
+
     @GetMapping("/getAllEmployee")
-    public ResponseEntity<List<EmployeeDto>> getAllEmployee() {
-        List<EmployeeDto> listOfEmployees = employeeService.getAllEmployee();
+    public ResponseEntity<Page<EmployeeDto>> getAllEmployee(@RequestParam(defaultValue = "0") int page,
+                                                            @RequestParam(defaultValue = "10") int limit) {
+        Pageable pageable = PageRequest.of(page, limit, Sort.by("empId"));
+        Page<EmployeeDto> listOfEmployees = employeeService.getAllEmployee(pageable);
         return ResponseEntity.status(HttpStatus.OK).body(listOfEmployees);
     }
+
     @GetMapping("/getEmployee/{id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id){
         EmployeeDto employee = employeeService.getEmployeeById(id);
