@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.modus.projectmanagement.ProjectManagementApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.131 s -- in com.modus.projectmanagement.ProjectManagementApplicationTests
