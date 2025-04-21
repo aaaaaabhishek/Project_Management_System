@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="keyClockk" />
+        <module name="Authentication" />
+        <module name="keyclock_rest" />
+        <module name="demo1" />
+      </profile>
+      <profile name="Annotation profile for BloomFilter" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="employeemanagement" />
+        <module name="GZIP" />
+        <module name="ProjectManagement" />
+        <module name="ProjectManagement (1)" />
+        <module name="CSV_to_db" />
+        <module name="BloomFilter" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="employee_management" target="17" />
+      <module name="p" target="17" />
+      <module name="proread" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Authentication" options="-parameters" />
+      <module name="BloomFilter" options="-parameters" />
+      <module name="CSV_to_db" options="-parameters" />
+      <module name="GZIP" options="-parameters" />
+      <module name="ProjectManagement" options="-parameters" />
+      <module name="ProjectManagement (1)" options="-parameters" />
+      <module name="demo1" options="-parameters" />
+      <module name="employee_management" options="-parameters" />
+      <module name="employeemanagement" options="-parameters" />
+      <module name="keyClockk" options="-parameters" />
+      <module name="keyclock_rest" options="-parameters" />
+      <module name="p" options="-parameters" />
+      <module name="proread" options="-parameters" />
+    </option>
+  </component>
+</project>

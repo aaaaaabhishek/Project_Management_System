@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../../employee_management/pom.xml" />
+        <option value="$USER_HOME$/Downloads/LoginPage/LoginPage/pom.xml" />
+        <option value="$USER_HOME$/Downloads/keyClockk/keyClockk/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Project_Mangement_System-dev/Project_Mangement_System-dev/employeemanagement/pom.xml" />
+        <option value="$USER_HOME$/Downloads/keyclock_rest/keyclock_rest/pom.xml" />
+        <option value="$USER_HOME$/Downloads/p/p/pom.xml" />
+        <option value="$USER_HOME$/Downloads/GZIP/GZIP/pom.xml" />
+        <option value="$USER_HOME$/Downloads/ProjectManagement 1/ProjectManagement/pom.xml" />
+        <option value="$USER_HOME$/Downloads/CSV_to_db/CSV_to_db/pom.xml" />
+        <option value="$USER_HOME$/Downloads/demo1/demo1/pom.xml" />
+        <option value="$USER_HOME$/Downloads/proread/proread/pom.xml" />
+        <option value="$USER_HOME$/Downloads/BloomFilter/BloomFilter/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$USER_HOME$/Downloads/p/p/pom.xml" />
+        <option value="$USER_HOME$/Downloads/proread/proread/pom.xml" />
+        <option value="$PROJECT_DIR$/../../employee_management/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,101 @@
+spring:
+  application:
+    name: Project_Management
+  datasource:
+    url: jdbc:postgresql://localhost:5432/project_management
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.keycloak.serverUrl}/realms/${app.keycloak.realm}
+app:
+  keycloak:
+    admin:
+      clientId: admin-cli
+      clientSecret: azPUJhTO1EVONnA91nwmOCkh1Pf2JRyY
+    realm: spring
+    serverUrl: http://localhost:8080
+    app:
+      tokenUrl: http://localhost:8080/realms/spring/protocol/openid-connect/token
+      clientId: spring-app
+      clientSecret: azPUJhTO1EVONnA91nwmOCkh1Pf2JRyY
+#logging:
+#  level:
+#    org:
+#      springframework:
+#       security: DEBUG
+server:
+  port: 8081
+# Resilience4j Circuit Breaker Configuration
+resilience4j:
+  circuitBreaker:
+    instances:
+      addManager_breaker:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 10
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 6000
+        eventConsumerBufferSize: 10
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+      createProject_breaker:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 10
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 6000
+        eventConsumerBufferSize: 10
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+      getAllProject_breaker:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 10
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 6000
+        eventConsumerBufferSize: 10
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+  retry:
+    instances:
+      addManagerRetry:
+        maxAttempts: 3
+        backoff:
+          delay: 1000
+
+      createProjectRetry:
+        maxAttempts: 3
+        backoff:
+          delay: 1000
+
+      getAllProjectRetry:
+        maxAttempts: 3
+        backoff:
+          delay: 1000
+
+  ratelimiter:
+    instances:
+      ManagerRateLimiter:
+        limit-refresh-period: 4s
+        limit-for-period: 10
+        timeout-duration: 2s
+
+      projectRateLimiter:
+        limit-refresh-period: 4s
+        limit-for-period: 10
+        timeout-duration: 2s
